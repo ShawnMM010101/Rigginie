@@ -37,6 +37,7 @@ class User(AbstractUser):
     contact = models.CharField(max_length=15, blank=True)
     addresses = models.CharField(max_length=255, blank=True)
     is_verified = models.BooleanField(default=False)
+    
     picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
     USER_TYPE_CHOICES = [ ("student", "Student"), ("working", "Working"), ("gamer", "Gamer"), ("enthusiast", "Enthusiast"), ]
     user_type = models.CharField( max_length=20, choices=USER_TYPE_CHOICES, blank=True, null=True )

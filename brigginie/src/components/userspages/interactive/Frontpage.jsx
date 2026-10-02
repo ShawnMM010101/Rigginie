@@ -89,6 +89,7 @@ const pcSystemsMenu = {
         { key: 'workstation', label: 'Powerful work PCs', to: '/category/workstation-pc' },
         { key: 'home', label: 'Home and office PCs', to: '/category/home-pc' },
         { key: 'mini', label: 'Small-space PCs', to: '/category/mini-pc' },
+        { key: 'PCComponents', label: 'Computer Components', to: '/category/computer-components' },
     ],
     families: {
         gaming: [
@@ -109,6 +110,13 @@ const pcSystemsMenu = {
         mini: [
             { label: 'Compact Desktop PCs', to: '/category/mini-compact' },
             { label: 'HTPC & Media Center PCs', to: '/category/mini-htpc' },
+        ],
+        PCComponents : [
+            { label: 'Graphics Cards Units(GPU)', to: '/category/mini-compact' },
+            { label: 'Central Processing Unit(CPU)', to: '/category/mini-htpc' },
+            { label: 'Random Access Memory(RAM)', to: '/category/mini-htpc' },
+            { label: 'Solid State Drives(SSD)', to: '/category/mini-htpc' },
+            { label: 'Hard Disk Drive(HDD)', to: '/category/mini-htpc' },
         ],
     },
 };
@@ -210,7 +218,6 @@ function Frontpage() {
         <div className="min-h-screen bg-gray-50 flex flex-col">
             <nav className="w-full bg-gray-950 px-5 py-2 text-xs text-gray-300">
                 <div className="max-w-7xl mx-auto flex justify-end items-center gap-5">
-                    <a onClick={() => navigate('/forum')} className="hover:text-orange-400 cursor-pointer transition-colors">Forum</a>
                     <a onClick={() => navigate('/help')} className="hover:text-orange-400 cursor-pointer transition-colors">Help & Support</a>
                     <a onClick={() => navigate('/blog')} className="hover:text-orange-400 cursor-pointer transition-colors">Blog</a>
                     <a onClick={() => navigate('/survey')} className="hover:text-orange-400 cursor-pointer transition-colors">Survey</a>
@@ -653,6 +660,18 @@ function ProductCard({ product, onCartUpdated, onError }) {
     );
 }
 function Footer() {
+    const paymentMethods = [
+        { image: gcash, name: 'GCash' },
+        { image: paypal, name: 'PayPal' },
+        { image: visa, name: 'Visa' },
+        { image: maya, name: 'Maya' },
+        { image: homecredit, name: 'Home Credit' },
+        { image: mastercard, name: 'Mastercard' },
+        { image: usdt, name: 'USDT' },
+        { image: ethereum, name: 'Ethereum' },
+        { image: btc, name: 'Bitcoin' },
+        { image: xmr, name: 'Monero' },
+    ];
     return (
         <footer className="bg-gray-900 text-gray-300 py-10 px-6 md:px-10 border-t-4 border-orange-500 mt-auto">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -662,7 +681,7 @@ function Footer() {
                         <li><a href="#" className="hover:text-orange-400 transition-colors">Privacy Policy</a></li>
                         <li><a href="#" className="hover:text-orange-400 transition-colors">Terms of Service</a></li>
                         <li><a href="#" className="hover:text-orange-400 transition-colors">Support & Warranty</a></li>
-                        <li><a href="#" className="hover:text-orange-400 transition-colors">Mission & Vision</a></li>
+                        <li><a href="/mission-vission" className="hover:text-orange-400 transition-colors">Mission & Vision</a></li>
                     </ul>
                 </div>
                 <div>
@@ -687,17 +706,18 @@ function Footer() {
                 </div>
                 <div className="md:col-span-3 mt-8 border-t border-gray-800 pt-6">
                     <h3 className="text-lg font-semibold text-white mb-3 text-center">Payment Methods</h3>
-                    <div className="flex flex-wrap gap-4 mx-auto justify-center">
-                        <img src={gcash} className="h-10 w-auto" alt="GCash" />
-                        <img src={paypal} className="h-10 w-auto" alt="PayPal" />
-                        <img src={visa} className="h-10 w-auto" alt="Visa" />
-                        <img src={maya} className="h-10 w-auto" alt="Maya" />
-                        <img src={homecredit} className="h-10 w-auto" alt="Home Credit" />
-                        <img src={mastercard} className="h-10 w-auto" alt="Mastercard" />
-                        <img src={usdt} className="h-10 w-auto" alt="USDT" />
-                        <img src={ethereum} className="h-10 w-auto" alt="Ethereum" />
-                        <img src={btc} className="h-10 w-auto" alt="Bitcoin" />
-                        <img src={xmr} className="h-10 w-auto" alt="Monero" />
+                    <div className="payment-marquee" role="region" aria-label="Accepted payment methods">
+                        <div className="payment-marquee-track">
+                            {[false, true].map((isDuplicate) => (
+                                <div key={String(isDuplicate)} className="payment-marquee-group" aria-hidden={isDuplicate}>
+                                    {paymentMethods.map(({ image, name }) => (
+                                        <div key={name} className="payment-marquee-item">
+                                            <img src={image} alt={isDuplicate ? '' : name} />
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

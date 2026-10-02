@@ -26,6 +26,7 @@ const PAYMENT_METHODS = [
   { id: 'mastercard', label: 'Mastercard', image: mastercard },
 ];
 const BITCOIN_ADDRESS = import.meta.env.VITE_BITCOIN_ADDRESS || 'YOUR_BITCOIN_ADDRESS';
+const ETHEREUM_ADDRESS = import.meta.env.VITE_ETHEREUM_ADDRESS || 'YOUR_ETHEREUM_ADDRESS';
 
 function Checkout() {
   const navigate = useNavigate();
@@ -170,6 +171,17 @@ function Checkout() {
                 <p className="mt-1 text-xs font-mono text-gray-500 break-all">{BITCOIN_ADDRESS}</p>
               </div>
             )}
+            {selectedMethod === 'ethereum' && (
+              <div className="mt-7 border-t border-slate-100 pt-6 flex flex-col items-center text-center">
+                <h3 className="font-bold text-gray-900">Ethereum payment QR</h3>
+                <div className="mt-4 bg-white border border-slate-200 rounded-2xl p-3 shadow-sm">
+                  <QRCodeCanvas value={`ethereum:${ETHEREUM_ADDRESS}?amount=${cart.total}`} size={200} includeMargin />
+                </div>
+                <p className="mt-3 text-sm text-gray-600">Scan to send the exact checkout total.</p>
+                <p className="mt-1 text-xs font-mono text-gray-500 break-all">{ETHEREUM_ADDRESS}</p>
+              </div>
+            )}
+
 
             {needsCardDetails && (
               <div className="mt-6 border-t border-gray-100 pt-5 grid sm:grid-cols-2 gap-4">

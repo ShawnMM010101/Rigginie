@@ -170,7 +170,6 @@ function Cart() {
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col">
             <nav className="w-full bg-black py-1 px-2 flex justify-end items-center gap-x-3">
-                <button className="text-white border-2 border-white bg-zinc-800 hover:bg-zinc-700 text-sm font-medium rounded-sm px-3 py-1 transition" onClick={() => navigate('/forum')}>FORUM</button>
                 <a onClick={() => navigate('/help')}   className="font-medium hover:underline text-amber-100 cursor-pointer">Help & Support</a>
                 <a onClick={() => navigate('/blog')}   className="font-medium hover:underline text-amber-100 cursor-pointer">Blog</a>
                 <a onClick={() => navigate('/survey')} className="font-medium hover:underline text-amber-100 cursor-pointer">Survey</a>

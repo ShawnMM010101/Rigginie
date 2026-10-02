@@ -108,7 +108,6 @@ function Laptops() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <nav className='w-full bg-black py-1 px-2 md:px-6 flex justify-end items-center stickys'>
-        <button className="text-white border-2 border-white bg-zinc-800 hover:bg-zinc-700 cursor-pointer text-sm font-medium rounded-sm shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 px-3 py-1 " onClick={() => navigate('/forum')}> FORUM</button>
       </nav>
       <nav className="w-full bg-orange-500 py-5 px-6 md:px-10 shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between">

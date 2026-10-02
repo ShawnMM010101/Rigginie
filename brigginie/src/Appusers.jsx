@@ -1,9 +1,11 @@
 import { Routes, Route } from 'react-router';
+import './App.css';
 
 // User Pages
 import Frontpage from './components/userspages/interactive/Frontpage';
 import Pcstores from './components/userspages/interactive/pcstores';
 import Aibuild from './components/userspages/interactive/aibuild';
+import Missionvission from './components/userspages/interactive/Mission';
 import Networking from './components/userspages/interactive/networking';
 import Laptops from './components/userspages/interactive/laptops';
 import Account from './components/userspages/interactive/account';
@@ -26,9 +28,14 @@ import ProductDetail from './components/userspages/interactive/ProductDetail'
 import Checkout from './components/userspages/interactive/checkout'
 import GigabyteLaptop from './components/userspages/products/laptops/gigabyte';
 import Apple from './components/userspages/products/laptops/apple';
+import Asus from './components/userspages/products/laptops/asus'
+import Lenovo from './components/userspages/products/laptops/lenovo'
+import Accer from './components/userspages/products/laptops/acer'
+import Dell from './components/userspages/products/laptops/dell'
+
 // CPU
 import Intel from './components/userspages/products/cpu/intel';
-{/*import AMD from './components/userspages/products/cpu/amd';*/}
+/*import AMD from './components/userspages/products/cpu/amd';*/
 
 // Motherboard
 import ASUS from './components/userspages/products/motherboard/asus';
@@ -73,6 +80,7 @@ function Appusers() {
       <Route path="/pc-stores"  element={<Pcstores />} />
       <Route path="/ai-build"  element={<Aibuild />} />
       <Route path="/networking"  element={<Networking />} />
+      <Route path="/mission-vission" element={<Missionvission />} />
       <Route path="/laptops"  element={<Laptops />} />
       <Route path="/account"  element={<Account />} />
       <Route path="/servers"  element={<Servers />} />
@@ -137,9 +145,12 @@ function Appusers() {
       {/* Laptops */}
       <Route path="/gigabyte" element={<GigabyteLaptop />} />
       <Route path="/laptops/gigabyte" element={<GigabyteLaptop />} />
-      <Route path="/laptops/asus" element={<Laptops />} />
-      <Route path="/laptops/lenovo" element={<Laptops />} />
+      <Route path="/laptops/dell" element={<Dell />} />
+      <Route path="/laptops/asus" element={<Asus />} />
+      <Route path="/laptops/lenovo" element={<Lenovo />} />
+      <Route path="/laptops/acer" element={<Accer />} />
       <Route path="/laptops/apple" element={<Apple />} />
+
     </Routes>
   );
 }

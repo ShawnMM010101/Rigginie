@@ -12,7 +12,7 @@ def cluster_products(products, cluster_count=3):
 		return []
 
 	category_values = ['GPU', 'CPU', 'MB', 'RAM', 'SSD', 'HDD', 'PSU', 'CASE', 'COOL', 'PERI', 'MON', 'LAP', 'SRVR']
-	brand_values = ['ASUS', 'LENOVO', 'ACER', 'HP', 'MSI', 'GOOGLE']
+	brand_values = ['ASUS', 'LENOVO', 'ACER', 'HP', 'MSI', 'GOOGLE', 'APPLE', 'DELL', 'SAMSUNG', 'RAZER', 'LG', 'MICROSOFT', 'ALIENWARE', 'GIGABYTE', 'ZOTAC', 'EVGA', 'INTEL', 'AMD']
 	features = [
 		[
 			float(product.price),
